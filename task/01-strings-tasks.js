@@ -285,7 +285,34 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+  let rank = 0;
+  let suits = 0;
+  const arrRank = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+  const arrSuits = ['♣', '♦', '♥', '♠'];
+    arrRank.forEach((element, i) => {
+      if (value.length == 3) {
+        rank = 9;
+        suits = value[2];
+      } else {
+        if (value[0] == element) {
+         rank = i;
+         suits = value[1];
+        }
+      }
+    });
+
+    switch (suits){
+      case arrSuits[1]:
+        rank = rank + 13;
+        break;
+      case arrSuits[2]:
+        rank = rank + 26;
+        break;
+      case arrSuits[3]:
+        rank = rank + 39;
+        break;
+    }
+    return rank;
 }
 
 
