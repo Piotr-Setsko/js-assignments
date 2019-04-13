@@ -249,7 +249,14 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    let valueNew = [];
+    if (typeof(value) == 'object' && value != undefined) {
+      for (let i=0; i < value.length; i++) {
+        valueNew += value[i];
+      }
+      value = valueNew;
+    }
+    return (typeof(value) == 'string');
 }
 
 
