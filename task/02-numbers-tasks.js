@@ -111,8 +111,16 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
-}
+    let angle = 0;
+    angle = (x1*x2 + y1*y2)/(Math.sqrt(x1*x1 +y1*y1)*Math.sqrt(x2*x2+y2*y2));
+    if (angle == 0) {
+      return Math.PI/2;
+    } else if (angle == -1) {
+      return Math.PI;
+    } else {
+      return 0;
+    }
+  }
 
 /**
  * Returns a last digit of a integer number.
